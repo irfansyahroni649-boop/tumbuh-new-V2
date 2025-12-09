@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Donasi Modern</title>
+
+    <style>
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            background: linear-gradient(135deg, #47cdcf, #4ba77e);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            animation: fadeIn 0.6s ease;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #45c292;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #444;
+        }
+
+
+        input, select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #5eba99;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        button:hover {
+            background-color: #5eba99;
+            transform: scale(1.03);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        li {
+            background-color: #f1f8e9;
+            margin: 7px 0;
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .total {
+            margin-top: 20px;
+            padding: 15px;
+            background: #4fb887;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            border-radius: 10px;
+        }
+   /*image*/
+
+        .donation-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.donation-form {
+    flex: 1;
+}
+
+.donation-photo img {
+    width: 200px;      /* ukuran foto */
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1>Makasih orang baik</h1>
+
+        <form id="donasiForm">
+            <label for="nama">Nama Donatur:</label>
+            <input type="text" id="nama" required>
+
+            <label for="nominal">Nominal Donasi (Rp):</label>
+            <input type="number" id="nominal" min="1" required>
+
+            <label for="metode">Metode Pembayaran:</label>
+            <select id="metode" required>
+                <option value="">-- Pilih Metode Pembayaran --</option>
+                <option value="Dana">Dana</option>
+                <option value="Gopay">Gopay</option>
+                <option value="BCA">BCA</option>
+                <option value="Mandiri">Mandiri</option>
+            </select>
+
+            <button type="submit">Tambah Donasi</button>
+        </form>
+
+        <h2>Daftar Donasi</h2>
+        <ul id="daftarDonasi"></ul>
+
+        <div class="total" id="totalDonasi">Total Donasi: Rp0</div>
+    </div>
+    <div class="donation-container">
+    <div class="donation-form">
+        <!-- isi form donasi di sini -->
+    </div>
+    <script>
+        let donasiList = [];
+
+        const logoMap = {
+            "Dana": "img2/dana.jpg",
+            "Gopay": "img2/gopay.jpg",
+            "BCA": "img2/images.png",
+            "Mandiri": "img2/logo-livin.jpg"
+        };
+
+        const form = document.getElementById('donasiForm');
+        const daftar = document.getElementById('daftarDonasi');
+        const totalDiv = document.getElementById('totalDonasi');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById('nama').value.trim();
+            const nominal = parseFloat(document.getElementById('nominal').value);
+            const metode = document.getElementById('metode').value;
+
+            if (!nama || !metode || nominal <= 0) {
+                alert('Harap lengkapi semua data!');
+                return;
+            }
+
+            donasiList.push({ nama, nominal, metode });
+
+            form.reset();
+            updateDisplay();
+        });
+
+        function updateDisplay() {
+            daftar.innerHTML = '';
+            let total = 0;
+
+            donasiList.forEach(d => {
+                const li = document.createElement('li');
+
+                li.innerHTML = `
+                    <img src="${logoMap[d.metode]}" class="logo">
+                    <div>
+                        <strong>${d.nama}</strong><br>
+                        Rp${d.nominal.toLocaleString('id-ID')} — <em>${d.metode}</em>
+                    </div>
+                `;
+
+                daftar.appendChild(li);
+                total += d.nominal;
+            });
+
+            totalDiv.textContent = `Total Donasi: Rp${total.toLocaleString('id-ID')}`;
+        }
+    </script>
+    
+</body>
+</html>
+
