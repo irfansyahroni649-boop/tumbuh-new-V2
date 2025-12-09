@@ -1,0 +1,76 @@
+// Objek data terjemahan. Key (Bahasa Indonesia) dan Nilai (Bahasa Inggris)
+// menyertakan tag HTML inline untuk mempertahankan styling.
+const translations = {
+    // --- NAVIGASI & UMUM ---
+    "Misi": "Mission",
+    "Solusi": "Solutions",
+    "Tentang": "About",
+    "Pilih Bahasa:": "Select Language:",
+    "Lihat Selengkapnya": "View More", // Tombol
+
+    // --- INDEX.HTML: ZERO HUNGER ---
+    "Apa itu Zero Hunger?": "What is Zero Hunger?",
+    "Merupakan <strong>komitmen global</strong> untuk memastikan setiap orang, di mana pun, <strong>akses yang andal dan berkelanjutan</strong> <strong>makanan yang cukup, aman, dan bergizi setiap hari.</strong>": "It is a <strong>global commitment</strong> to ensure every person, everywhere, has <strong>reliable and sustainable access</strong> to adequate, safe, and nutritious food every day.",
+    "\"Berdasarkan data dari Gasoedus, Indonesia menyumbang sekitar <span class=\"highlight\">49 juta ton sisa makanan setiap tahun</span>. Bahkandalam pedesaan memiliki akses pangan yang lebih buruk.\"": "\"Based on data from Gasoedus, Indonesia contributes around <span class=\"highlight\">49 million tons of food waste every year</span>. Even rural areas have worse food access.\"",
+    
+    // --- INDEX.HTML: FOOD WASTE ---
+    "Mengurangi Food Waste": "Reducing Food Waste",
+    "Belanja sesuai kebutuhan": "Shop according to needs",
+    "Simpan makanan dengan metode yang benar": "Store food using correct methods",
+    "Manfaatkan sisa makanan menjadi hidangan baru": "Turn leftovers into new dishes",
+    "Dukung gerakan lokal anti mubazir": "Support local anti-waste movements",
+    "Sebagian besar <span class=\"highlight\">makanan terbuang di tingkat konsumen rumahan tangga</span> dan layanan makanan. Penyebab utamanya <span class=\"highlight\">adalah</span> perencanaan makan yang buruk, penyimpanan tidak tepat, <span class=\"highlight\">dan</span> kurangnya pemahaman tentang masa simpan makanan.": "Most <span class=\"highlight\">food is wasted at the level of household consumers</span> and food services. The main causes <span class=\"highlight\">are</span> poor meal planning, improper storage, <span class=\"highlight\">and</span> a lack of understanding of food shelf life.",
+    
+    // --- INDEX.HTML: WHY IMPORTANT ---
+    "Mengapa Ini Penting?": "Why Is This Important?",
+    "Kelaparan bukan masalah jarak atau kelangkaan, melainkan <span class=\"highlight\">ketimpangan akses dan kesadaran.</span> Selama makanan masih dibuang di satu sisi, sementara perut kosong di sisi lain, <span class=\"highlight\">kita belum mencapai keadilan pangan.</span> <span class=\"highlight\">Zero Hunger bukan hanya tujuan global,</span> ini <span class=\"highlight\">tanggung jawab kolektif</span> yang dimulai dari keputusan sehari-hari. <span class=\"highlight\">Setiap butir nasi yang dihargai</span> adalah <span class=\"highlight\">langkah nyata menuju dunia di mana semua orang layak tumbuh.</span>": "Hunger is not a problem of distance or scarcity, but <span class=\"highlight\">access inequality and awareness.</span> As long as food is being thrown away on one side, while stomachs are empty on the other, <span class=\"highlight\">we have not achieved food justice.</span> <span class=\"highlight\">Zero Hunger is not just a global goal,</span> it is a <span class=\"highlight\">collective responsibility</span> that starts with daily decisions. <span class=\"highlight\">Every grain of rice valued</span> is a <span class=\"highlight\">real step towards a world where everyone deserves to grow.</span>",
+
+    // --- ABOUT.HTML ---
+    "Dibalik 'Tumbuh'": "Behind 'Tumbuh'",
+    "Tumbuh lahir dari keprihatinan atas tingginya angka kelaparan di tengah melimpahnya limbah makanan. Kami percaya, solusi terbaik dimulai dari edukasi dan perubahan perilaku harian.": "Tumbuh was born out of concern over high hunger rates amidst abundant food waste. We believe the best solution starts with education and daily behavioral change.",
+    "Kami bukan platform distribusi": "We are not a distribution platform",
+    "Tapi ruang edukasi untuk memahami akar kelaparan, menghargai makanan, dan mengambil langkah kecil yang bisa mengubah kebiasaan.": "But an educational space to understand the roots of hunger, value food, and take small steps that can change habits.",
+    "<span class=\"highlight\">perubahan dimulai bukan dari limbah,tapi dari kesadaran.</span>": "<span class=\"highlight\">change begins not with waste, but with awareness.</span>"
+};
+
+// Fungsi utama untuk melakukan terjemahan
+function toggleLanguage() {
+    // Cek status toggle (ID: true, EN: false)
+    const isIndonesian = document.getElementById('langToggle').checked;
+    const elements = document.querySelectorAll('[data-translate-key]');
+    const htmlTag = document.querySelector('html');
+
+    const targetLang = isIndonesian ? 'id' : 'en';
+    htmlTag.lang = targetLang;
+
+    elements.forEach(el => {
+        // Ambil key (Bahasa Indonesia) dari atribut data
+        // Menghilangkan spasi berlebihan dan baris baru di awal/akhir key
+        let key = el.getAttribute('data-translate-key').trim(); 
+        
+        // Cari terjemahan
+        const translatedText = translations[key];
+
+        if (translatedText) {
+            // Gunakan innerHTML untuk mempertahankan tag styling
+            el.innerHTML = isIndonesian ? key : translatedText;
+        } else {
+            // Jika ada key yang tidak cocok, biarkan teks asli (ID) dan log error
+            console.warn(`Missing or Mismatched translation key for: ${key}`);
+        }
+    });
+
+    localStorage.setItem('tumbuh_language', targetLang);
+}
+
+// Fungsi untuk memuat preferensi bahasa saat halaman dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('tumbuh_language') || 'id';
+    const langToggle = document.getElementById('langToggle');
+
+    if (langToggle) {
+        langToggle.checked = savedLang === 'id';
+        toggleLanguage(); 
+        langToggle.addEventListener('change', toggleLanguage);
+    }
+});
