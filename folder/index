@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tumbuh - Biarkan Semua Tumbuh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+      href="https://fonts.googleapis.com/css2?family=TikTok+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/tumbuh.png" class="logo-img" alt="Logo Tumbuh" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#misi" data-translate-key="Misi">Misi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#solusi" data-translate-key="Solusi">Solusi</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html" data-translate-key="Tentang">Tentang</a></li>
+            
+            <!-- Tombol Toggle Bahasa (Menggunakan class Bootstrap: form-switch) -->
+            <li class="nav-item d-flex align-items-center ms-md-3">
+                <span class="text-muted small me-2" data-translate-key="Pilih Bahasa:">Pilih Bahasa:</span>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="langToggle" checked>
+                    <label class="form-check-label small text-black" for="langToggle">ID/EN</label>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <section class="hero">
+      <div class="container text-center"> 
+        <div class="hero-image">
+          <img src="img/child.jpg" alt="Seorang anak kecil sedang memegang tanaman" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section zero-hunger" id="misi">
+      <div class="container">
+        <h2 class="section-title" data-translate-key="Apa itu Zero Hunger?">Apa itu Zero Hunger?</h2>
+        <div class="content-grid">
+          <div class="text-content">
+            <h3 class="subtitle" data-translate-key="Merupakan <strong>komitmen global</strong> untuk memastikan setiap orang, di mana pun, <strong>akses yang andal dan berkelanjutan</strong> <strong>makanan yang cukup, aman, dan bergizi setiap hari.</strong>">
+              Merupakan <strong>komitmen global</strong> untuk memastikan setiap orang, di mana pun, <strong>akses yang andal dan berkelanjutan</strong> <strong>makanan yang cukup, aman, dan bergizi setiap hari.</strong>
+            </h3>
+            
+            <blockquote class="quote-text" data-translate-key="&quot;Berdasarkan data dari Gasoedus, Indonesia menyumbang sekitar <span class=&quot;highlight&quot;>49 juta ton sisa makanan setiap tahun</span>. Bahkandalam pedesaan memiliki akses pangan yang lebih buruk.&quot;">
+              "Berdasarkan data dari Gasoedus, Indonesia menyumbang sekitar
+              <span class="highlight">49 juta ton sisa makanan setiap tahun</span>. Bahkandalam pedesaan memiliki akses pangan yang lebih buruk."
+            </blockquote>
+            
+            <a class="btn btn-light btn-sm cta-secondary" href="https://www.kompas.com/food/read/2025/06/19/183000375/indonesia-jadi-penghasil-sampah-makanan-terbesar-kedua-di-dunia#" data-translate-key="Lihat Selengkapnya">
+                Lihat Selengkapnya</a>
+          </div>
+          <div class="image-content">
+            <img src="img/zero_hunger_image.jpg" class="zero_hunger_image" alt="Ilustrasi Zero Hunger dengan tanaman dan simbol makanan" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section food-waste" id="solusi">
+      <div class="container">
+        <h2 class="section-title" data-translate-key="Mengurangi Food Waste">Mengurangi Food Waste</h2>
+        <div class="content-grid">
+          <div class="text-content">
+            <ul class="bullet-list">
+              <li data-translate-key="Belanja sesuai kebutuhan">Belanja sesuai kebutuhan</li>
+              <li data-translate-key="Simpan makanan dengan metode yang benar">Simpan makanan dengan metode yang benar</li>
+              <li data-translate-key="Manfaatkan sisa makanan menjadi hidangan baru">Manfaatkan sisa makanan menjadi hidangan baru</li>
+              <li data-translate-key="Dukung gerakan lokal anti mubazir">Dukung gerakan lokal anti mubazir</li>
+            </ul>
+            <p class="section-narasi" data-translate-key="Sebagian besar <span class=&quot;highlight&quot;>makanan terbuang di tingkat konsumen rumahan tangga</span> dan layanan makanan. Penyebab utamanya <span class=&quot;highlight&quot;>adalah</span> perencanaan makan yang buruk, penyimpanan tidak tepat, <span class=&quot;highlight&quot;>dan</span> kurangnya pemahaman tentang masa simpan makanan.">
+              Sebagian besar
+              <span class="highlight">makanan terbuang di tingkat konsumen rumahan tangga</span>
+              dan layanan makanan. Penyebab utamanya
+              <span class="highlight">adalah</span> perencanaan makan yang
+              buruk, penyimpanan tidak tepat,
+              <span class="highlight">dan</span> kurangnya pemahaman tentang
+              masa simpan makanan.
+            </p>
+          </div>
+          <div class="image-content">
+            <img src="img/food_waste.jpg" class="zero_hunger_image" alt="Ilustrasi makanan yang terbuang" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why-important">
+      <div class="container">
+        <h2 class="section-title" data-translate-key="Mengapa Ini Penting?">Mengapa Ini Penting?</h2>
+        <div class="text-content">
+          <p data-translate-key="Kelaparan bukan masalah jarak atau kelangkaan, melainkan <span class=&quot;highlight&quot;>ketimpangan akses dan kesadaran.</span> Selama makanan masih dibuang di satu sisi, sementara perut kosong di sisi lain, <span class=&quot;highlight&quot;>kita belum mencapai keadilan pangan.</span> <span class=&quot;highlight&quot;>Zero Hunger bukan hanya tujuan global,</span> ini <span class=&quot;highlight&quot;>tanggung jawab kolektif</span> yang dimulai dari keputusan sehari-hari. <span class=&quot;highlight&quot;>Setiap butir nasi yang dihargai</span> adalah <span class=&quot;highlight&quot;>langkah nyata menuju dunia di mana semua orang layak tumbuh.</span>">
+            Kelaparan bukan masalah jarak atau kelangkaan,
+            melainkan
+            <span class="highlight">ketimpangan akses dan kesadaran.</span>
+            Selama makanan masih dibuang di satu sisi, sementara perut kosong di
+            sisi lain,
+            <span class="highlight">kita belum mencapai keadilan pangan.</span>
+            <span class="highlight">Zero Hunger bukan hanya tujuan global,</span>
+            ini <span class="highlight">tanggung jawab kolektif</span> yang
+            dimulai dari keputusan sehari-hari.
+            <span class="highlight">Setiap butir nasi yang dihargai</span>
+            adalah
+            <span class="highlight">langkah nyata menuju dunia di mana semua orang layak tumbuh.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-white py-4">
+      <div class="container">
+        <div class="row align-items-center text-center text-md-start">
+    
+          <div class="col-md-4 mb-3 mb-md-0">
+            <img src="img/horizontal-logo.png" style="max-width: 140px;" alt="Logo Tumbuh Horizontal">
+          </div>
+    
+          <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center gap-3">
+            <a href="#misi" class="text-white text-decoration-none" data-translate-key="Misi">Misi</a>
+            <a href="#solusi" class="text-white text-decoration-none" data-translate-key="Solusi">Solusi</a>
+            <a href="about.html" class="text-white text-decoration-none" data-translate-key="Tentang">Tentang</a>
+          </div>
+    
+          <div class="col-md-4 text-md-end">
+            © 2025 Tumbuh
+          </div>
+    
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="translation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
